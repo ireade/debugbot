@@ -283,6 +283,18 @@ controller.on("direct_mention", function(bot, message) {
   bugReport(bot, message); 
 });
 
+controller.on("mention", function(bot, message) {
+  var intro = "Hi there! I'm here to help with bugs. I'll ask you a series of questions, and all you have to do is respond.";
+  bot.reply(message, intro);
+
+  bugReport(bot, message); 
+});
+
+controller.on("direct_message", function(bot, message) {
+  var intro = "Hi there! I'm here to help with bugs. If you have a bug to report, please go to the #bugs channel and send me a message there.";
+  bot.reply(message, intro);
+});
+
 
 controller.on("user_channel_join", function(bot, message) {
   var reply = "Welcome <@"+message.user+">! If you're experiencing any bugs on the site, I'm the one to talk to. Just @ me to start a conversation.";
